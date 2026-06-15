@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_login_page/services/auth_service.dart';
+import 'package:status_alert/status_alert.dart';
 
 class LoginPage extends StatefulWidget {
   @override
@@ -88,10 +90,26 @@ class _LoginPageState extends State<LoginPage> {
     return SizedBox(
       width: MediaQuery.sizeOf(context).width * 0.60,
       child: ElevatedButton(
-        onPressed: () {
+        onPressed: () async {
           if (_loginFormKey.currentState?.validate() ?? false) {
             _loginFormKey.currentState?.save();
-            print("$username : $password");
+            // print("$username : $password");
+            bool result = await AuthService().login(
+              username!,
+              password!,
+            ); //! means you forcing it to allow to accept the null value, but since were already checking for that , it negates the error forcefully
+            print(result);
+            if (result) {
+            } else {
+              StatusAlert.show(
+                context,
+                duration: Duration(seconds: 2),
+                title: "Login Failed",
+                subtitle: "try again",
+                configuration: IconConfiguration(icon: Icons.error),
+                maxWidth: 300,
+              );
+            }
           }
         },
         child: const Text("Login"),
