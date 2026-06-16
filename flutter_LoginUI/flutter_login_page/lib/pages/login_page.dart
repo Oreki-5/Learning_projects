@@ -100,6 +100,8 @@ class _LoginPageState extends State<LoginPage> {
             ); //! means you forcing it to allow to accept the null value, but since were already checking for that , it negates the error forcefully
             print(result);
             if (result) {
+              
+              Navigator.pushReplacementNamed(context, "/home");
             } else {
               StatusAlert.show(
                 context,
@@ -113,6 +115,7 @@ class _LoginPageState extends State<LoginPage> {
           }
         },
         child: const Text("Login"),
+        
       ),
     );
   }

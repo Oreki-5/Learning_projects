@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_login_page/pages/home_page.dart';
 import 'package:flutter_login_page/pages/login_page.dart';
 
 void main() {
@@ -10,10 +11,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: LoginPage(),
       title: 'Sample App',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepOrange),
+        colorScheme: ColorScheme.fromSeed(seedColor: const Color.fromARGB(255, 12, 117, 144)),
         useMaterial3: true,
         appBarTheme: const AppBarTheme(
           titleTextStyle: TextStyle(
@@ -23,6 +23,11 @@ class MyApp extends StatelessWidget {
           ),
         ),
       ),
+      initialRoute: "/login",
+      routes: {
+        "/login": (context)=> LoginPage(),
+        "/home" : (context)=> HomePage(),
+      },
     );
   }
 }
