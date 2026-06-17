@@ -11,11 +11,14 @@ class DataService {
   }
 
   DataService._internal(){
-    getRecipes();
   }
 
-  Future<List<Recipe>?> getRecipes() async{
+  Future<List<Recipe>?> getRecipes(String? _filter) async{
+    
     String path = "/recipes/";
+    if(_filter?.isNotEmpty ??false){
+      path+="meal-type/$_filter";
+    }
     var response = await _httpService.get(path);
     if(response?.statusCode == 200 && response?.data != null){
       // print(response!.data);
