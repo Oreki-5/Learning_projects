@@ -37,7 +37,7 @@ class _LoginPageState extends State<LoginPage> {
 
   Widget _title() {
     return const Text(
-      "My Cool App",
+      "Recipe Book",
       style: TextStyle(fontSize: 35, fontWeight: FontWeight.w300),
     );
   }
@@ -54,6 +54,7 @@ class _LoginPageState extends State<LoginPage> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             TextFormField(
+              
               onSaved: (value) {
                 setState(() {
                   username = value;

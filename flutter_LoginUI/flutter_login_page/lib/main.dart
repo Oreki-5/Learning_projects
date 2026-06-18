@@ -13,13 +13,13 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Sample App',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: const Color.fromARGB(255, 12, 117, 144)),
+        colorScheme: ColorScheme.fromSeed(seedColor: const Color.fromARGB(255, 161, 12, 225)),
         useMaterial3: true,
         appBarTheme: const AppBarTheme(
           titleTextStyle: TextStyle(
             color: Colors.black,
             fontSize: 25,
-            fontWeight: FontWeight.bold,
+            fontWeight: FontWeight.w200,
           ),
         ),
       ),

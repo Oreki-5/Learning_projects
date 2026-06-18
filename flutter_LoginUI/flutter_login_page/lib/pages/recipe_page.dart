@@ -13,7 +13,7 @@ class RecipePage extends StatelessWidget {
         centerTitle: true,
         backgroundColor: Colors.white60,
         title: Text(
-          "RecipBook",
+          "Recipe Book",
           style: TextStyle(fontSize: 25, fontWeight: FontWeight.w200),
         ),
       ),
@@ -22,7 +22,16 @@ class RecipePage extends StatelessWidget {
   }
 
   Widget _bodyUI(BuildContext context) {
-    return Column(children: [_recipeImage(context), _recipeDetails(context)]);
+    return SingleChildScrollView(
+      child: Column(
+        children: [
+          _recipeImage(context),
+          _recipeDetails(context),
+          _recipeIngredients(context),
+          _recipeInstructions(context),
+        ],
+      ),
+    );
   }
 
   Widget _recipeImage(BuildContext context) {
@@ -65,6 +74,42 @@ class RecipePage extends StatelessWidget {
             style: TextStyle(fontSize: 15, fontWeight: FontWeight.w300),
           ),
         ],
+      ),
+    );
+  }
+
+  Widget _recipeIngredients(BuildContext context) {
+    return Container(
+      color: Colors.white,
+      width: MediaQuery.sizeOf(context).width,
+      padding: EdgeInsets.symmetric(vertical: 15, horizontal: 20),
+      child: Column(
+        children: recipe.ingredients.map((e) {
+          return Row(children: [const Icon(Icons.check_box), Text(" $e")]);
+        }).toList(),
+      ),
+    );
+  }
+
+  Widget _recipeInstructions(BuildContext context) {
+    return Container(
+      color: Colors.white,
+      width: MediaQuery.sizeOf(context).width,
+      padding: EdgeInsets.symmetric(vertical: 15, horizontal: 20),
+      child: Column(
+        mainAxisSize: MainAxisSize.max,
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: recipe.instructions.map((e) {
+          return Text(
+            " $e",
+            textAlign: TextAlign.start,
+            maxLines: 3,
+            style: TextStyle(
+              fontSize: 15
+            )
+            );
+        }).toList(),
       ),
     );
   }
