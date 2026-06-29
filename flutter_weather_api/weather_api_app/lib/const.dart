@@ -1,1 +1,1 @@
-// const OPENWEATHER_API_KEY = "";
+// const OPENWEATHER_API_KEY = "key goes here";
