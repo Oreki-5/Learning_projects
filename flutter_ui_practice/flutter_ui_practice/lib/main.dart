@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_ui_practice/pages/bottomNavBarPages/bottom_nav_bar_page.dart';
 import 'package:flutter_ui_practice/pages/login_page.dart';
 
 void main() {
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: .fromSeed(seedColor: const Color.fromARGB(255, 33, 203, 246)),
       ),
-      home: const LoginPage(),
+      home: const BottomNavBarPage(),
     );
   }
 }
